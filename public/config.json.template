@@ -1,4 +1,4 @@
 {
-  "apiUrl": "${PEDIDO_API_URL}",
-  "pedidosEndpoint": "${PEDIDOS_ENDPOINT}"
+  "apiUrl": "${ORDERS_API_URL}",
+  "ordersEndpoint": "${ORDERS_ENDPOINT}"
 }

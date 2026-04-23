@@ -3,10 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: pedido-frontend:latest
+    image: orders-frontend:latest
     ports:
       - '80:80'
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-      - PEDIDO_API_URL=http://localhost:8081      - PEDIDOS_ENDPOINT=/orders
+      - ORDERS_API_URL=http://localhost:8081      
+      - ORDERS_ENDPOINT=/orders
