@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "pedido-frontend": {
+    "orders-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pedido-frontend:build:production"
+              "buildTarget": "orders-frontend:build:production"
             },
             "development": {
-              "buildTarget": "pedido-frontend:build:development"
+              "buildTarget": "orders-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
