@@ -9,3 +9,4 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      - PEDIDO_API_URL=http://localhost:8081

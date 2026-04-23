@@ -1,17 +1,23 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Pedido } from "../models/pedido";
+import { ConfigService } from "../../../core/config.service";
 
 @Injectable({ providedIn: 'root' })
 export class PedidoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigService
+  ) {}
 
   listar() {
-    return this.http.get<Pedido[]>('http://localhost:8080/pedidos');
+    const apiUrl = `${this.configService.getApiUrl()}/pedidos`;
+    return this.http.get<Pedido[]>(apiUrl);
   }
 
   crear(pedido: Pedido) {
-    return this.http.post<Pedido>('http://localhost:8080/pedidos', pedido);
+    const apiUrl = `${this.configService.getApiUrl()}/pedidos`;
+    return this.http.post<Pedido>(apiUrl, pedido);
   }
 }
