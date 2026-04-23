@@ -17,7 +17,7 @@ FROM nginx:stable-alpine AS production
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy built app
-COPY --from=builder /app/dist/pedido-frontend/browser /usr/share/nginx/html
+COPY --from=builder /app/dist/orders-frontend/browser /usr/share/nginx/html
 
 # Copy config template
 COPY public/config.json.template /usr/share/nginx/html/config.json.template
