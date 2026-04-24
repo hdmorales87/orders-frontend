@@ -21,6 +21,7 @@
                 <tr>
                   <th>Name</th>
                   <th class="text-end">Total</th>
+                  <th class="text-center">Status</th>
                   <th class="text-center">Actions</th>
                 </tr>
               </thead>
@@ -28,6 +29,20 @@
                 <tr *ngFor="let p of orders">
                   <td>{{ p.name }}</td>
                   <td class="text-end">${{ p.total }}</td>
+                  <td class="text-center">
+                    <span 
+                      [ngClass]="{
+                        'badge bg-warning': p.statusId === 0,
+                        'badge bg-success': p.statusId === 1,
+                        'badge bg-danger': p.statusId === 2,
+                        'badge bg-secondary': p.statusId === undefined || p.statusId === null
+                      }">
+                      {{ p.statusId === 0 ? '⏳ Pending' : 
+                         p.statusId === 1 ? '✅ Approved' : 
+                         p.statusId === 2 ? '❌ Rejected' : 
+                         '📋 Unknown' }}
+                    </span>
+                  </td>
                   <td class="text-center">
                     <button
                       type="button"
@@ -55,7 +70,7 @@
             <h3 class="h5 mb-3">{{ editing ? '✏️ Edit Order' : '➕ Create Order' }}</h3>
 
             <form (ngSubmit)="createOrder()" class="row g-3">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label class="form-label">Name:</label>
                 <input
                   type="text"
@@ -66,7 +81,7 @@
                 />
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <label class="form-label">Total:</label>
                 <input
                   type="number"
@@ -76,7 +91,7 @@
                   min="0"
                   required
                 />
-              </div>
+              </div>              
 
               <div class="col-md-2 d-grid">
                 <button type="submit" class="btn btn-primary">

@@ -19,7 +19,8 @@ export class OrderListComponent {
   newOrder: Order = {
     id: 0,
     name: '',
-    total: 0
+    total: 0,
+    statusId: 0
   };
 
   editing: boolean = false;
@@ -31,7 +32,7 @@ export class OrderListComponent {
       this.cancelEdit();
     } else {
       this.create.emit(this.newOrder);
-      this.newOrder = { id: 0, name: '', total: 0 };
+      this.newOrder = { id: 0, name: '', total: 0, statusId: 0 };
     }
   }
 
@@ -44,7 +45,7 @@ export class OrderListComponent {
   cancelEdit() {
     this.editing = false;
     this.editingId = 0;
-    this.newOrder = { id: 0, name: '', total: 0 };
+    this.newOrder = { id: 0, name: '', total: 0, statusId: 0 };
   }
 
   deleteOrder(id: number) {
